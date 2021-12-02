@@ -22,7 +22,7 @@ function printMinutes() {
 }
 
 function printSeconds() {
-  // ... your code goes here
+  secUniElement.innerHTML = '9' 
 }
 
 // ==> BONUS
@@ -56,7 +56,8 @@ function setResetBtn() {
 
 // Start/Stop Button
 btnLeftElement.addEventListener('click', () => {
-  // ... your code goes here
+  chronometer.start(function printSeconds() {
+
 });
 
 // Reset/Split Button

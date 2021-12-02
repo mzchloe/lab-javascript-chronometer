@@ -3,7 +3,8 @@ const Chronometer = require('../javascript/chronometer');
 describe('Chronometer', () => {
   let chronometer;
 
-  beforeEach(() => {
+   //it resets our chronometer, so our test always run a blank chronometer,using beforeEach we will always start at 0
+  beforeEach(() => { 
     jest.useFakeTimers();
     chronometer = new Chronometer();
   });

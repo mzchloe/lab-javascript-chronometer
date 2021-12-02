@@ -8,15 +8,14 @@ class Chronometer {
 
 
   start(callback) {
-    
-   this.intervalId = setInterval(() => {
+      this.intervalId = setInterval(() => {
       this.currentTime += 1;
       if(callback){
         callback(); // so it does not throw an error in case it doesn't receive a function
       }
     }, 1000); //use of arrow function to enable referencing back to the object in the chronometer, otherwise it will refer to a global
- 
   }
+
 
   getMinutes() {
     return Number(Math.floor((this.currentTime/60))); 
@@ -37,8 +36,10 @@ class Chronometer {
   
 
   computeTwoDigitNumber(value) {
-    
-    return value > 9 ? `${value}` : `0${value}` 
+    if (value < 10) return `0${value}`
+    if (value >= 10) return value.toString()
+   
+    // Another option: return value > 9 ? `${value}` : `0${value}`;
     
   }
 
@@ -47,11 +48,12 @@ class Chronometer {
   }
 
   reset() {
-    this.currentTime=0; //starts from 0 again when reset 
+      this.currentTime=0; //starts from 0 again when reset 
   }
 
   split() {
-    return this.computeTwoDigitNumber(this.getMinutes()) + ":" + this.computeTwoDigitNumber(this.getSeconds());
+   
+   return this.computeTwoDigitNumber(this.getMinutes()) + ":" + this.computeTwoDigitNumber(this.getSeconds());
  
   }
 }
